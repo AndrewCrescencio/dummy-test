@@ -27,13 +27,15 @@ function confirm() {
 function cancel() {
   emit('cancel')
 }
+
+const { format } = useFormatUTCDate()
 </script>
 
 <template>
   <PrimeCard>
     <template #content>
       <p><strong>Nome Completo:</strong> {{ formData.fullName }}</p>
-      <p><strong>Data de Nascimento:</strong> {{ formData.dateOfBirth }}</p>
+      <p><strong>Data de Nascimento:</strong> {{ format(formData.dateOfBirth) }}</p>
       <p><strong>CPF:</strong> {{ formData.cpf }}</p>
       <p><strong>Espécie do Pet:</strong> {{ formData.petSpecie }}</p>
       <p><strong>Raça do Pet:</strong> {{ formData.petBreed }}</p>
