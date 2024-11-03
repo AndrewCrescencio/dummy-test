@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { DataTablePageEvent } from 'primevue/datatable'
 import { FilterMatchMode } from '@primevue/core/api'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import type { UserResponse } from '~/types/api/users/UserResponse.type'
 
 const runtimeConfigs = useRuntimeConfig()

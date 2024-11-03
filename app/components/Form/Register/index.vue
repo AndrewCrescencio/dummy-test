@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed, reactive, ref, watch } from 'vue'
-import { date, type InferType, number, object, string } from 'yup'
+import { computed, ref, watch } from 'vue'
+import { date, number, object, string } from 'yup'
 
 const listCatBreed = ref(['Persa', 'Siamês', 'Maine Coon', 'Sphynx', 'Ragdoll'])
 const listDogBreed = ref(['Labrador Retriever', 'Bulldog', 'Poodle', 'Shih Tzu', 'Golden Retriever'])

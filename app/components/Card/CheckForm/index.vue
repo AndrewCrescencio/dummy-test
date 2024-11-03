@@ -1,7 +1,4 @@
-<!-- VerificationModal.vue -->
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
-
 interface FormData {
   fullName: string
   dateOfBirth: string
@@ -34,7 +31,6 @@ function cancel() {
 
 <template>
   <PrimeCard>
-    <!-- <template title="Informações Submetidas" /> -->
     <template #content>
       <p><strong>Nome Completo:</strong> {{ formData.fullName }}</p>
       <p><strong>Data de Nascimento:</strong> {{ formData.dateOfBirth }}</p>
