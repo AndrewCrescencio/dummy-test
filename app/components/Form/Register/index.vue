@@ -19,7 +19,7 @@ const schema = object({
   // TODO: melhorar validação do cpf
   cpf: string().required('Campo obrigatório'),
   petSpecie: string().required('Campo obrigatório').oneOf(['cão', 'gato']),
-  petBreed: string().required('Campo obrigatório').oneOf([...listDogBreed.value, ...listCatBreed.value, 'outro']),
+  petBreed: string().required('Campo obrigatório').oneOf([...listDogBreed.value, ...listCatBreed.value, 'outro'], 'Campo obrigatório'),
   petBreedName: string().test({
     name: 'petBreedName',
     message: 'Campo obrigatório',
