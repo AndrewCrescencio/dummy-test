@@ -46,7 +46,7 @@ defineExpose({ openModal, closeModal })
             leave-to="opacity-0 scale-95"
           >
             <HeadlessDialogPanel
-              class="max-w-md w-full transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all !relative lg:max-w-xl dark:bg-[#18181b]"
+              class="max-w-md w-full transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all !relative lg:max-w-xl dark:!bg-[#18181b]"
             >
               <PrimeButton class="right-0 top-0 !absolute" @click="closeModal">
                 <span class="sr-only">close</span>
