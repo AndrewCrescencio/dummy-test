@@ -135,7 +135,7 @@ fetchUsers()
           <div class="flex items-center gap-2">
             <p>{{ tableData.address.state }}</p>
             <a
-              :href="getLink(tableData.address.coordinates.lat, tableData.address.coordinates.lng)"
+              :href="getLink(tableData.address)"
               target="_blank"
               rel="noopener noreferrer"
             >
