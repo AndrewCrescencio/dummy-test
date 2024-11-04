@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { date, number, object, string } from 'yup'
+import { isCpfValid } from '~/utils/isCpfValid'
 
 const listCatBreed = ref(['Persa', 'Siamês', 'Maine Coon', 'Sphynx', 'Ragdoll'])
 const listDogBreed = ref(['Labrador Retriever', 'Bulldog', 'Poodle', 'Shih Tzu', 'Golden Retriever'])
@@ -17,7 +18,9 @@ const schema = object({
 
   fullName: string().matches(/^\S+(\s+\S+)+$/, 'O campo deve conter nome e sobrenome').max(70, 'Limite de 70 caracteres').required('Campo obrigatório'),
   // TODO: melhorar validação do cpf
-  cpf: string().required('Campo obrigatório'),
+  cpf: string().required('Campo obrigatório').test('cpf', 'cpf inválido', (cpf) => {
+    return isCpfValid(cpf)
+  }),
   petSpecie: string().required('Campo obrigatório').oneOf(['cão', 'gato']),
   petBreed: string().required('Campo obrigatório').oneOf([...listDogBreed.value, ...listCatBreed.value, 'outro'], 'Campo obrigatório'),
   petBreedName: string().test({
