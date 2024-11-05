@@ -119,59 +119,69 @@ function onCancel() {
 </script>
 
 <template>
-  <form class="space-y-9" @submit.prevent="onSubmit">
-    <PrimeInputGroup>
+  <form class="space-y-8" @submit.prevent="onSubmit">
+    <div class="relative pb-5">
       <PrimeFloatLabel>
-        <PrimeDatePicker id="form_dateOfBirth" v-model="dateOfBirth" date-format="dd/mm/yy" :class="{ 'p-invalid': errors.dateOfBirth }" :invalid="!!errors.dateOfBirth" />
+        <PrimeDatePicker id="form_dateOfBirth" v-model="dateOfBirth" class="w-full" date-format="dd/mm/yy" :class="{ 'p-invalid': errors.dateOfBirth }" :invalid="!!errors.dateOfBirth" />
         <label for="form_dateOfBirth">Data de nascimento</label>
       </PrimeFloatLabel>
-    </PrimeInputGroup>
-    <small v-if="errors.dateOfBirth" id="dateOfBirth-help" class="p-error">
-      {{ errors.dateOfBirth }}
-    </small>
+      <small v-if="errors.dateOfBirth" id="dateOfBirth-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.dateOfBirth }}
+      </small>
+    </div>
 
-    <PrimeInputGroup>
+    <div class="relative pb-5">
       <PrimeFloatLabel>
-        <PrimeInputText id="form_name" v-model="fullName" autocomplete="name" maxlength="70" type="text" :class="{ 'p-invalid': errors.fullName }" />
+        <PrimeInputText id="form_name" v-model="fullName" class="w-full" autocomplete="name" maxlength="70" type="text" :class="{ 'p-invalid': errors.fullName }" />
         <label for="form_name">Nome Completo</label>
       </PrimeFloatLabel>
-    </PrimeInputGroup>
-    <small v-if="errors.fullName" id="fullName-help" class="p-error">
-      {{ errors.fullName }}
-    </small>
+      <small v-if="errors.fullName" id="fullName-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.fullName }}
+      </small>
+    </div>
 
-    <PrimeInputGroup label="CPF" name="cpf">
+    <div class="relative pb-5">
       <PrimeFloatLabel>
-        <PrimeInputMask id="form_cpf" v-model="cpf" autocomplete="cpf" mask="999.999.999-99" :unmask="true" :class="{ 'p-invalid': errors.cpf }" />
+        <PrimeInputMask id="form_cpf" v-model="cpf" class="w-full" autocomplete="cpf" mask="999.999.999-99" :unmask="true" :class="{ 'p-invalid': errors.cpf }" />
         <label for="form_cpf">CPF</label>
       </PrimeFloatLabel>
-    </PrimeInputGroup>
-    <small v-if="errors.cpf" id="cpf-help" class="p-error">
-      {{ errors.cpf }}
-    </small>
+      <small v-if="errors.cpf" id="cpf-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.cpf }}
+      </small>
+    </div>
 
-    <PrimeInputGroup label="Espécie do pet" name="petSpecie">
-      <PrimeSelect v-model="petSpecie" :options="listPetSpecie" placeholder="Espécie do pet" :class="{ 'p-invalid': errors.petSpecie }" />
-    </PrimeInputGroup>
-    <small v-if="errors.petSpecie" id="petSpecie-help" class="p-error">
-      {{ errors.petSpecie }}
-    </small>
+    <div class="relative pb-5">
+      <PrimeFloatLabel>
+        <PrimeSelect id="form_cpf" v-model="petSpecie" class="w-full" :options="listPetSpecie" :class="{ 'p-invalid': errors.petSpecie }" />
+        <label for="form_cpf">Espécie do pet</label>
+      </PrimeFloatLabel>
+      <small v-if="errors.petSpecie" id="petSpecie-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.petSpecie }}
+      </small>
+    </div>
 
-    <PrimeInputGroup label="Raça do pet" name="petBreed">
-      <PrimeSelect v-model="petBreed" :options="listPetBreed" placeholder="Raça do pet" :class="{ 'p-invalid': errors.petBreed }" />
-    </PrimeInputGroup>
-    <small v-if="errors.petBreed" id="petBreed-help" class="p-error">
-      {{ errors.petBreed }}
-    </small>
+    <div class="relative pb-5">
+      <PrimeFloatLabel>
+        <PrimeSelect id="petBreed" v-model="petBreed" class="w-full" :options="listPetBreed" :class="{ 'p-invalid': errors.petBreed }" />
+        <label for="petBreed">Raça do pet</label>
+      </PrimeFloatLabel>
+      <small v-if="errors.petBreed" id="petBreed-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.petBreed }}
+      </small>
+    </div>
 
-    <PrimeInputGroup v-if="petBreed === 'outro'" label="Nome da raça do pet" name="petBreedName">
-      <PrimeInputText v-model="petBreedName" maxlength="50" placeholder="Nome da raça" type="text" :class="{ 'p-invalid': errors.petBreedName }" />
-    </PrimeInputGroup>
-    <small v-if="errors.petBreedName" id="petBreedName-help" class="p-error">
-      {{ errors.petBreedName }}
-    </small>
+    <div v-if="petBreed === 'outro'" class="relative pb-5">
+      <PrimeFloatLabel>
+        <PrimeInputText id="petBreedName" v-model="petBreedName" maxlength="50" class="w-full" type="text" :class="{ 'p-invalid': errors.petBreedName }" />
+        <label for="petBreedName">Nome da raça do pet</label>
+      </PrimeFloatLabel>
 
-    <PrimeInputGroup label="Renda mensal" name="monthlyIncome">
+      <small v-if="errors.petBreedName" id="petBreedName-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.petBreedName }}
+      </small>
+    </div>
+
+    <div class="relative pb-5">
       <PrimeFloatLabel>
         <PrimeInputNumber
           v-model="monthlyIncome"
@@ -180,61 +190,63 @@ function onCancel() {
         />
         <label for="form_monthlyIncome">Renda mensal</label>
       </PrimeFloatLabel>
-    </PrimeInputGroup>
-    <small v-if="errors.monthlyIncome" id="monthlyIncome-help" class="p-error">
-      {{ errors.monthlyIncome }}
-    </small>
+      <small v-if="errors.monthlyIncome" id="monthlyIncome-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.monthlyIncome }}
+      </small>
+    </div>
 
-    <PrimeInputGroup label="CEP" name="cep">
-      <PrimeFloatLabel>
-        <PrimeInputMask id="form_cep" v-model="cep" mask="99999-999" :unmask="true" :class="{ 'p-invalid': errors.cep }" @blur="handleSearchCep" />
-        <label for="form_cep">CEP</label>
-      </PrimeFloatLabel>
-      <PrimeButton icon="i-tabler-search" severity="info" :disabled="isSearchingCep" @click.prevent="handleSearchCep" />
-    </PrimeInputGroup>
-    <small v-if="errors.cep" id="cep-help" class="p-error">
-      {{ errors.cep }}
-    </small>
+    <div class="relative pb-5">
+      <PrimeInputGroup label="CEP" name="cep">
+        <PrimeFloatLabel>
+          <PrimeInputMask id="form_cep" v-model="cep" mask="99999-999" :unmask="true" :class="{ 'p-invalid': errors.cep }" @blur="handleSearchCep" />
+          <label for="form_cep">CEP</label>
+        </PrimeFloatLabel>
+        <PrimeButton icon="i-tabler-search" severity="info" :disabled="isSearchingCep" @click.prevent="handleSearchCep" />
+      </PrimeInputGroup>
+      <small v-if="errors.cep" id="cep-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.cep }}
+      </small>
+    </div>
 
-    <PrimeInputGroup>
+    <div class="relative pb-5">
       <PrimeFloatLabel>
-        <PrimeInputText id="form_street" v-model="street" maxlength="70" type="text" :class="{ 'p-invalid': errors.street }" />
+        <PrimeInputText id="form_street" v-model="street" class="w-full" maxlength="70" type="text" :class="{ 'p-invalid': errors.street }" />
         <label for="form_street">Rua</label>
       </PrimeFloatLabel>
-    </PrimeInputGroup>
-    <small v-if="errors.street" id="street-help" class="p-error">
-      {{ errors.street }}
-    </small>
+      <small v-if="errors.street" id="street-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.street }}
+      </small>
+    </div>
 
-    <PrimeInputGroup>
+    <div class="relative pb-5">
       <PrimeFloatLabel>
-        <PrimeInputText id="form_neighborhood" v-model="neighborhood" maxlength="70" type="text" :class="{ 'p-invalid': errors.neighborhood }" />
+        <PrimeInputText id="form_neighborhood" v-model="neighborhood" class="w-full" maxlength="70" type="text" :class="{ 'p-invalid': errors.neighborhood }" />
         <label for="form_neighborhood">Bairro</label>
       </PrimeFloatLabel>
-    </PrimeInputGroup>
-    <small v-if="errors.neighborhood" id="neighborhood-help" class="p-error">
-      {{ errors.neighborhood }}
-    </small>
+      <small v-if="errors.neighborhood" id="neighborhood-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.neighborhood }}
+      </small>
+    </div>
 
-    <PrimeInputGroup>
+    <div class="relative pb-5">
       <PrimeFloatLabel>
-        <PrimeInputText id="form_city" v-model="city" maxlength="70" type="text" :class="{ 'p-invalid': errors.city }" />
+        <PrimeInputText id="form_city" v-model="city" class="w-full" maxlength="70" type="text" :class="{ 'p-invalid': errors.city }" />
         <label for="form_city">Cidade</label>
       </PrimeFloatLabel>
-    </PrimeInputGroup>
-    <small v-if="errors.city" id="city-help" class="p-error">
-      {{ errors.city }}
-    </small>
+      <small v-if="errors.city" id="city-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.city }}
+      </small>
+    </div>
 
-    <PrimeInputGroup>
+    <div class="relative pb-5">
       <PrimeFloatLabel>
-        <PrimeInputText id="form_state" v-model="state" class="uppercase placeholder:uppercase" placeholder="UF" maxlength="2" type="text" :class="{ 'p-invalid': errors.state }" />
+        <PrimeInputText id="form_state" v-model="state" class="w-full uppercase placeholder:uppercase" placeholder="UF" maxlength="2" type="text" :class="{ 'p-invalid': errors.state }" />
         <label for="form_state"><span class="sr-only">sigla UF Estado</span>UF</label>
       </PrimeFloatLabel>
-    </PrimeInputGroup>
-    <small v-if="errors.state" id="state-help" class="p-error">
-      {{ errors.state }}
-    </small>
+      <small v-if="errors.state" id="state-help" class="p-error absolute z-1 mt-1 text-xs">
+        {{ errors.state }}
+      </small>
+    </div>
 
     <PrimeButton type="submit" severity="info" class="w-full !block">
       Submit
