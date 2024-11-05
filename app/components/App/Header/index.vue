@@ -20,7 +20,7 @@ const items = ref([
 
 <template>
   <header class="fixed left-0 top-0 z-10 w-screen">
-    <PrimeMenubar :model="items" class="navbar">
+    <PrimeMenubar :model="items" class="navbar mx-auto container">
       <template #item="{ item, props, hasSubmenu }">
         <nuxt-link v-if="item.route" v-slot="{ href, navigate }" :to="item.route" custom>
           <a v-ripple :href="href" v-bind="props.action" @click="navigate">
@@ -39,9 +39,11 @@ const items = ref([
 </template>
 
 <style lang="scss" scoped>
+header {
+  background-color: var(--p-menubar-background);
+  border-bottom: 1px solid var(--p-menubar-border-color);
+}
 :deep(.navbar) {
   border: none;
-  border-bottom: 1px solid var(--p-menubar-border-color);
-  border-radius: 0 !important;
 }
 </style>
