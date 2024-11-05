@@ -18,7 +18,9 @@ function onClick() {
 <template>
   <PrimeCard style="width: 100%; overflow: hidden" class="w-72 rounded-xl bg-white shadow-md">
     <template #header>
-      <img alt="recipe image" :src="recipe.image">
+      <div class="h-72 w-full flex items-center justify-center overflow-hidden">
+        <img alt="recipe image" :src="recipe.image" class="h-full w-full object-cover">
+      </div>
     </template>
     <template #title>
       {{ recipe.name }}
@@ -32,7 +34,16 @@ function onClick() {
       </p>
     </template>
     <template #footer>
-      <PrimeButton label="Modo de preparo" class="z-10 w-full cursor-pointer" @click="onClick()" />
+      <PrimeButton label="Modo de preparo" class="z-10 mt-auto w-full cursor-pointer" @click="onClick()" />
     </template>
   </PrimeCard>
 </template>
+
+<style lang="scss" scoped>
+:deep(.p-card-body) {
+  height: 100%;
+}
+:deep(.p-card-footer) {
+  margin-top: auto;
+}
+</style>
