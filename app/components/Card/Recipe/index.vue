@@ -16,11 +16,9 @@ function onClick() {
 </script>
 
 <template>
-  <PrimeCard style="width: 100%; overflow: hidden" class="w-72 rounded-xl bg-white shadow-md">
+  <PrimeCard style="width: 100%; overflow: hidden" class="rounded-xl bg-white shadow-md">
     <template #header>
-      <div class="h-72 w-full flex items-center justify-center overflow-hidden">
-        <img loading="lazy" alt="recipe image" :src="recipe.image" class="h-full w-full object-cover">
-      </div>
+      <img loading="lazy" height="288" alt="recipe image" :src="recipe.image" class="h-72 w-full object-fill object-center">
     </template>
     <template #title>
       {{ recipe.name }}

@@ -18,7 +18,7 @@ function seeInfo(payload: Recipe) {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 mx-auto mb-5 mt-10 w-fit justify-center justify-items-center gap-4 lg:grid-cols-3 md:grid-cols-2 md:gap-6">
+  <div class="grid grid-cols-1 mx-auto mb-5 mt-10 justify-center justify-items-center gap-4 lg:grid-cols-3 md:grid-cols-2 md:gap-6">
     <CardRecipe v-for="recipe in listRecipes" :key="recipe.id" :recipe="recipe" @see-info="seeInfo" />
   </div>
   <AppDialog v-if="currentRecipeInfo" ref="modalRef" title="Modo de preparo">
