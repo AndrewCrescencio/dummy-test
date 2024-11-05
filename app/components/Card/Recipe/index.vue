@@ -19,7 +19,7 @@ function onClick() {
   <PrimeCard style="width: 100%; overflow: hidden" class="w-72 rounded-xl bg-white shadow-md">
     <template #header>
       <div class="h-72 w-full flex items-center justify-center overflow-hidden">
-        <img alt="recipe image" :src="recipe.image" class="h-full w-full object-cover">
+        <img loading="lazy" alt="recipe image" :src="recipe.image" class="h-full w-full object-cover">
       </div>
     </template>
     <template #title>
