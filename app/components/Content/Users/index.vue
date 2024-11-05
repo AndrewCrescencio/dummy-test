@@ -116,7 +116,7 @@ fetchUsers()
       <PrimeColumn header="Nome completo">
         <template #body="{ data: tableData }">
           <div class="flex items-center gap-2">
-            <img :src="`${tableData.image}`" :alt="tableData.image" class="h-8 w-8 rounded-full">
+            <img :src="`${tableData.image}`" :alt="tableData.image" class="h-8 w-8 rounded-full" width="32" height="32">
             <p>{{ `${tableData.firstName} ${tableData.maidenName ? `${tableData.maidenName} ` : ''}${tableData.lastName}` }}</p>
           </div>
         </template>
