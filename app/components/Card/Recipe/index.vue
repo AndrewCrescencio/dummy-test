@@ -24,7 +24,9 @@ function onClick() {
       {{ recipe.name }}
     </template>
     <template #subtitle>
-      <p>Tags: {{ recipe.tags.join(", ") }}</p>
+      <p class="line-clamp-1" :title="recipe.tags.join(', ')">
+        Tags: {{ recipe.tags.join(", ") }}
+      </p>
     </template>
     <template #content>
       <p>
