@@ -18,7 +18,7 @@ function onClick() {
 <template>
   <PrimeCard style="width: 100%; overflow: hidden" class="w-72 rounded-xl bg-white shadow-md">
     <template #header>
-      <img alt="user header" :src="recipe.image">
+      <img alt="recipe image" :src="recipe.image">
     </template>
     <template #title>
       {{ recipe.name }}
