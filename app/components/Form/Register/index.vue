@@ -167,7 +167,7 @@ function onCancel() {
     </div>
 
     <div class="grid gap-x-3 gap-y-8 md:grid-cols-4">
-      <div class="relative pb-5 md:col-span-1">
+      <div class="relative pb-5 md:col-span-2" :class="{ '!md:col-span-1': petBreed === 'outro' }">
         <PrimeFloatLabel>
           <PrimeSelect id="form_cpf" v-model="petSpecie" class="w-full" :options="listPetSpecie" :class="{ 'p-invalid': errors.petSpecie }" />
           <label for="form_cpf">Espécie do pet</label>
@@ -177,7 +177,7 @@ function onCancel() {
         </small>
       </div>
 
-      <div class="relative pb-5 md:col-span-1">
+      <div class="relative pb-5 md:col-span-2" :class="{ '!md:col-span-1': petBreed === 'outro' }">
         <PrimeFloatLabel>
           <PrimeSelect id="petBreed" v-model="petBreed" class="w-full" :options="listPetBreed" :class="{ 'p-invalid': errors.petBreed }" />
           <label for="petBreed">Raça do pet</label>
